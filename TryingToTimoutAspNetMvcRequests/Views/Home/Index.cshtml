@@ -1,7 +1,16 @@
-﻿@{
+﻿@model TryingToTimoutAspNetMvcRequests.Models.IndexModel
+@{
     ViewBag.Title = "Home Page";
 }
 
 <p>
-    Content
+    It took @Model.ExecutionTime.ToString() to render this page.
 </p>
+
+@using(Html.BeginForm("Index", "Home"))
+{
+    @Html.LabelFor(m => m.Content)
+    @Html.TextAreaFor(m => m.Content)
+
+    <button type="submit">Submit</button>
+}

@@ -13,5 +13,10 @@ namespace TryingToTimoutAspNetMvcRequests
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_BeginRequest()
+        {
+            System.Web.HttpContext.Current.Server.ScriptTimeout = 10;
+        }
     }
 }
